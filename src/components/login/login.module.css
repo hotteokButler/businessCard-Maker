@@ -1,4 +1,4 @@
-@value makerDarkGreen,makerGreen,makerWhite,makerBlack,makerLightGreen from '../../common/colors.css';
+@value makerLightMintGreen,makerDarkGreen,makerGreen,makerWhite,makerBlack,makerLightGreen from '../../common/colors.css';
 .loginPage {
   width: 100%;
   max-width: 550px;
@@ -33,6 +33,7 @@
 }
 .buttonList li:hover {
   border-color: makerLightGreen;
+  background-color: makerLightMintGreen;
 }
 .buttonList button span {
   display: inline-block;

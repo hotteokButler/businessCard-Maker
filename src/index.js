@@ -4,8 +4,8 @@ import './index.module.css';
 import './reset.css';
 import App from './app.jsx';
 import AuthService from './service/auth_service';
-import { firebaseApp } from './service/firebase';
 import '@fortawesome/fontawesome-free/js/all.js';
+import { firebaseApp } from './service/firebase';
 
 const authService = new AuthService(firebaseApp);
 

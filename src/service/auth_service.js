@@ -2,8 +2,9 @@
 import { getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 class AuthService {
-  constructor() {
-    this.firebaseAuth = getAuth();
+  constructor(firebaseApp) {
+    this.firebaseApp = firebaseApp;
+    this.firebaseAuth = getAuth(this.firebaseApp);
     this.githubProvider = new GithubAuthProvider();
     this.googleProvider = new GoogleAuthProvider();
   }
