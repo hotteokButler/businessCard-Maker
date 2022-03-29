@@ -1,5 +1,12 @@
 // Authdontication에 관련된 일 (longin/longout같은것들 )
-import { getAuth, signInWithPopup, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import {
+  getAuth,
+  signInWithPopup,
+  signOut,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
 class AuthService {
   constructor(firebaseApp) {
@@ -12,6 +19,16 @@ class AuthService {
   login(providerName) {
     const authProvider = this.checkProvider(providerName);
     return signInWithPopup(this.firebaseAuth, authProvider);
+  }
+
+  onAuthChange(onUserChange) {
+    onAuthStateChanged(this.firebaseAuth, (user) => {
+      onUserChange(user);
+    });
+  }
+
+  logout() {
+    signOut(this.firebaseAuth);
   }
 
   checkProvider(providerName) {
