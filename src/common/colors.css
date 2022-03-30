@@ -4,12 +4,12 @@
 
 @value makerBlack: black;
 @value makerWhite: white;
-@value makerLightGrey: #e8e7e6;
+@value makerLightGrey: #efefef;
 @value makerLightPink: #ffeae8;
 @value makerGrey: #626262;
 @value makerDarkGreen: #112427;
 @value makerGreen: #385461;
-@value makerLightGreen: #008c79;
+@value makerLightGreen: #497386;
 @value makerLightMintGreen: #e5fdfa91;
 @value makerPink: pink;
 @value makerShadow: rgba(217, 217, 217, 1);
@@ -17,5 +17,5 @@
 @value makerWheat: wheat;
 
 test-c {
-  color: #e5fdfa91;
+  color: #497386;
 }

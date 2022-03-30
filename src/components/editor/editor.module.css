@@ -1,11 +1,18 @@
-@value makerGreen from '../../common/colors.css';
-
+@value makerGreen,makerLightGrey from '../../common/colors.css';
+@value mediaQueryBrower from '../../common/size.css';
 .editor {
   flex-basis: 50%;
-  background-color: lightblue;
+  padding: 1.5em 0;
+  border: 1px solid makerLightGrey;
 }
 .title {
-  padding: 1.5em 0 0.5em;
+  padding: 0 0 0.5em;
   text-align: center;
   color: makerGreen;
+}
+
+@media (min-width: mediaQueryBrower) {
+  .editor {
+    padding: 1.5em;
+  }
 }

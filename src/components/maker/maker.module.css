@@ -1,5 +1,6 @@
 @value makerDarkGreen,makerGreen,makerWhite from '../../common/colors.css';
 @value mediaQueryBrower from '../../common/size.css';
+
 .maker {
   display: flex;
   flex-direction: column;
