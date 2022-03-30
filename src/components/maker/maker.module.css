@@ -1,0 +1,22 @@
+@value makerDarkGreen,makerGreen,makerWhite from '../../common/colors.css';
+@value mediaQueryBrower from '../../common/size.css';
+.maker {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1440px;
+  height: 100vh;
+  margin: 0 auto;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: makerWhite;
+}
+
+@media (min-width: mediaQueryBrower) {
+  .container {
+    flex-direction: row;
+  }
+}

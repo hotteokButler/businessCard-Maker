@@ -1,1 +1,2 @@
-@value mediaQuery: 62rem;
+@value mediaQueryTablet: 768px;
+@value mediaQueryBrower: 1200px;
