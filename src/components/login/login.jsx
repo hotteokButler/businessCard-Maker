@@ -7,7 +7,6 @@ const Login = ({ authService }) => {
   const navigator = useNavigate();
 
   const goToMaker = (userId) => {
-    console.log(userId);
     navigator('/maker', {
       pathname: '/maker',
       state: {
