@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './image-file-input.module.css';
 
-const ImageFileInput = (props) => (
-  <button className={styles.button}>Image</button>
+const ImageFileInput = ({ name }) => (
+  <button className={styles.button}>{name}</button>
 );
 
 export default ImageFileInput;
