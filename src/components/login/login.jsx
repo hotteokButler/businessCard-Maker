@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
 const Login = ({ authService }) => {
   const navigator = useNavigate();
-
   const goToMaker = (userId) => {
     navigator('/maker', {
       pathname: '/maker',
@@ -18,7 +17,7 @@ const Login = ({ authService }) => {
   const onLogin = (event) => {
     authService //
       .login(event.target.textContent) //
-      .then((data) => goToMaker(data.user.uid));
+      .then((data) => goToMaker(data.user.uid)); //
   };
 
   useEffect(() => {

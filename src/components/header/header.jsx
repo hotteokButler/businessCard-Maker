@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styles from './header.module.css';
 const Header = ({ onLogout }) => {
+  const location = useLocation();
+  const [makerPage, setMakerPage] = useState(null);
+
+  useEffect(() => {
+    setMakerPage(location.pathname);
+  }, []);
+
   return (
     <header className={styles.header}>
-      {true && (
+      {makerPage === '/maker' && (
         <button className={styles.logout} onClick={onLogout}>
           Logout
         </button>
