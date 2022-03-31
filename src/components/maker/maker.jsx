@@ -31,7 +31,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     authService.logout();
   };
 
-  //
+  //내가 사용하는 props나 state가 update되었을때만 업데이트 될 수 있도록 수정
   useEffect(() => {
     if (!userId) {
       return;
@@ -41,7 +41,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     });
     //unmount되었을때  (resource & memory정리)
     return () => stopSync();
-  }, [userId]);
+  }, [userId, cardRepository]);
 
   //login
   useEffect(() => {
@@ -52,7 +52,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
         navigator('/');
       }
     });
-  }, []);
+  }, [userId, authService, locationHistory]);
 
   const createOrUpdateCard = (card) => {
     setCards((cards) => {
