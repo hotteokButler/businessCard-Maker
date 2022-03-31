@@ -1,48 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Editor from '../editor/editor';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
-const Maker = ({ FileInput, authService }) => {
+const Maker = ({ FileInput, authService, cardRepository }) => {
   const [cards, setCards] = useState({
-    1: {
-      id: '1',
-      name: 'JiSoo',
-      company: 'Samsung',
-      theme: 'dark',
-      title: 'Software Engineer',
-      email: 'gisoo@gmail.com',
-      message: 'go for it',
-      fileName: 'jisoo',
-      fileURL: null,
-    },
-    2: {
-      id: '2',
-      name: 'hotteok',
-      company: 'JS',
-      theme: 'colorful',
-      title: 'Cat',
-      email: 'hotteokCat@gmail.com',
-      message: '호떡이다옹',
-      fileName: 'hotteok',
-      fileURL: 'hotteok.png',
-    },
-    3: {
-      id: '3',
-      name: 'ruru',
-      company: 'Samsung',
-      theme: 'light',
-      title: 'chef',
-      email: 'ruru@gmail.com',
-      message: '카츠동 최고',
-      fileName: 'ruru',
-      fileURL: null,
-    },
+    // 1: {
+    //   id: '1',
+    //   name: 'JiSoo',
+    //   company: 'Samsung',
+    //   theme: 'dark',
+    //   title: 'Software Engineer',
+    //   email: 'gisoo@gmail.com',
+    //   message: 'go for it',
+    //   fileName: 'jisoo',
+    //   fileURL: null,
+    // },
   });
-
+  const locationHistory = useLocation();
+  const locationHistoryState = locationHistory?.state;
+  const [userId, setUserId] = useState(
+    locationHistoryState && locationHistoryState.id
+  );
   const navigator = useNavigate();
 
   const onLogout = () => {
@@ -51,7 +33,9 @@ const Maker = ({ FileInput, authService }) => {
 
   useEffect(() => {
     authService.onAuthChange((user) => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+      } else {
         navigator('/');
       }
     });
@@ -63,6 +47,8 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card;
       return updated;
     });
+
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = (card) => {
@@ -71,6 +57,7 @@ const Maker = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
