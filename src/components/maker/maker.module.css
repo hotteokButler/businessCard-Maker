@@ -1,5 +1,5 @@
 @value makerDarkGreen,makerGreen,makerWhite from '../../common/colors.css';
-@value mediaQueryBrower from '../../common/size.css';
+@value mediaQueryBrower,mediaQueryTablet from '../../common/size.css';
 
 .maker {
   display: flex;
@@ -16,7 +16,7 @@
   background-color: makerWhite;
 }
 
-@media (min-width: mediaQueryBrower) {
+@media (min-width: mediaQueryTablet) {
   .container {
     flex-direction: row;
   }

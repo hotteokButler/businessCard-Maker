@@ -1,4 +1,5 @@
 @value makerGreen from '../../common/colors.css';
+@value mediaQueryBrower,mediaQueryTablet from '../../common/size.css';
 
 .preview {
   flex-basis: 50%;
@@ -13,4 +14,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (min-width: mediaQueryTablet) {
+  .preview {
+    padding: 1.5em;
+  }
 }
