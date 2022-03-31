@@ -1,12 +1,18 @@
 @value makerLightGreen, makerGreen,makerWhite from '../../common/colors.css';
 
+.container {
+  flex: 1 1 50%;
+}
+.input {
+  display: none;
+}
 .button {
+  width: 100%;
   background-color: makerLightGreen;
   color: makerWhite;
   font-weight: bold;
   cursor: pointer;
   padding: 1em;
-  flex: 1 1 50%;
   font-size: 0.8rem;
 }
 

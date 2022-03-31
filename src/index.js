@@ -13,7 +13,7 @@ const authService = new AuthService(firebaseApp);
 const imageUploader = new ImageUploader();
 
 const FileInput = (props) => (
-  <ImageFileInput {...props} ImageUploader={imageUploader} />
+  <ImageFileInput {...props} imageUploader={imageUploader} />
 );
 
 ReactDOM.render(
