@@ -35,7 +35,6 @@ const CardEditForm = ({ FileInput, card, updateCard, deleteCard }) => {
       return;
     } else {
       event.preventDefault();
-      console.log(event.currentTarget.value);
       updateCard({
         ...card,
         [event.currentTarget.name]: event.currentTarget.value,
