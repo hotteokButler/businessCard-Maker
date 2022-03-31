@@ -31,6 +31,19 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     authService.logout();
   };
 
+  //
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, (cards) => {
+      setCards(cards);
+    });
+    //unmount되었을때  (resource & memory정리)
+    return () => stopSync();
+  }, [userId]);
+
+  //login
   useEffect(() => {
     authService.onAuthChange((user) => {
       if (user) {
