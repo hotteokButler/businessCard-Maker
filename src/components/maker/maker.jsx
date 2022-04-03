@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Editor from '../editor/editor';
 import Footer from '../footer/footer';
@@ -7,19 +7,7 @@ import Preview from '../preview/preview';
 import styles from './maker.module.css';
 
 const Maker = ({ FileInput, authService, cardRepository }) => {
-  const [cards, setCards] = useState({
-    // 1: {
-    //   id: '1',
-    //   name: 'JiSoo',
-    //   company: 'Samsung',
-    //   theme: 'dark',
-    //   title: 'Software Engineer',
-    //   email: 'gisoo@gmail.com',
-    //   message: 'go for it',
-    //   fileName: 'jisoo',
-    //   fileURL: null,
-    // },
-  });
+  const [cards, setCards] = useState({});
   const locationHistory = useLocation();
   const locationHistoryState = locationHistory?.state;
   const [userId, setUserId] = useState(
@@ -27,9 +15,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   );
   const navigator = useNavigate();
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]);
 
   //내가 사용하는 props나 state가 update되었을때만 업데이트 될 수 있도록 수정
   useEffect(() => {
@@ -54,15 +42,18 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     });
   }, [userId, authService, locationHistory]);
 
-  const createOrUpdateCard = (card) => {
-    setCards((cards) => {
-      const updated = { ...cards };
-      updated[card.id] = card;
-      return updated;
-    });
+  const createOrUpdateCard = useCallback(
+    (card) => {
+      setCards((cards) => {
+        const updated = { ...cards };
+        updated[card.id] = card;
+        return updated;
+      });
 
-    cardRepository.saveCard(userId, card);
-  };
+      cardRepository.saveCard(userId, card);
+    },
+    [cards]
+  );
 
   const deleteCard = (card) => {
     setCards((cards) => {

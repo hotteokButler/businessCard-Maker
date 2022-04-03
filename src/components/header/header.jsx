@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from './header.module.css';
-const Header = ({ onLogout }) => {
+const Header = memo(({ onLogout }) => {
   const location = useLocation();
   const [makerPage, setMakerPage] = useState(null);
 
@@ -22,6 +22,6 @@ const Header = ({ onLogout }) => {
       <h1 className={styles.title}>Business Card Maker</h1>
     </header>
   );
-};
+});
 
 export default Header;

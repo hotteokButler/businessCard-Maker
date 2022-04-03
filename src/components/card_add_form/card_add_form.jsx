@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import Button from '../button/button';
 import styles from './card-add-form.module.css';
 
-const CardAddForm = ({ FileInput, onSubmit }) => {
+const CardAddForm = memo(({ FileInput, onSubmit }) => {
   const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
@@ -88,6 +88,6 @@ const CardAddForm = ({ FileInput, onSubmit }) => {
       <Button name={'Add'} onClick={onSubmitNewCard} />
     </form>
   );
-};
+});
 
 export default CardAddForm;

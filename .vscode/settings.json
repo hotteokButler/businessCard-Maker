@@ -4,5 +4,5 @@
     "titleBar.inactiveBackground": "#3F708D"
   },
   "prettier.printWidth": 75,
-  "editor.fontSize": 16
+  "editor.fontSize": 18
 }
