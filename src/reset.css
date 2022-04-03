@@ -14,12 +14,9 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  vertical-align: middle;
 }
-img,
-button,
-input {
-  vertical-align: top;
-}
+
 button,
 input {
   border-style: none;
