@@ -1,5 +1,7 @@
 # Business Card Maker
 
+배포 : [준비중]
+
 # About
 
 : 나만의 명함 만들기 어플리케이션
