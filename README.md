@@ -13,6 +13,12 @@
 
 # Preview
 
+<br/>
+
+<img src="https://user-images.githubusercontent.com/90666180/161421286-3ea1bb1a-ba41-44ef-be7c-539699665900.gif" alt="business card demo" />
+
+<br/>
+
 # Functions
 
 - 구글 및 깃허브아이디 로그인 페이지
